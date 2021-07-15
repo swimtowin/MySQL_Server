@@ -7,10 +7,10 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 //連結資料庫
 var mysqlConnection = mysql.createConnection({
-    host: '127.0.0.1',
-    user: 'root',
-    password: '123456',
-    database:'image'
+    host: 'aien12four.cxr0m1n24wv8.us-east-1.rds.amazonaws.com',
+    user: 'aien12four',
+    password: 'uniqlo12aien',
+    database:'images'
 });
 
 mysqlConnection.connect((err) =>{
@@ -24,7 +24,7 @@ mysqlConnection.connect((err) =>{
 app.listen(3000,()=> console.log('Express run in port3000'));
 
 app.get('/image', (res,req)=>{
-    mysqlConnection.query('SELECT * FROM images', (err, rows, fields) => {
+    mysqlConnection.query('SELECT * FROM image', (err, rows, fields) => {
         if(!err)
         console.log(rows);
         else
